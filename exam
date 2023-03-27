@@ -1,0 +1,19 @@
+
+def function(script):
+    mylst=[5,-10,20.0]
+    input[mylst*script]
+    return(script)
+
+1*"blah"*5
+20*-10*5
+
+
+2.
+mylst=[1,9,10.2,6,-2]
+def largest_integer(mylst):
+  largest = None
+  for item in lst
+  if isinstance(item,int)
+  if largest is None or item > largest:
+  return largest
+               
