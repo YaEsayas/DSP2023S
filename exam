@@ -1,19 +1,58 @@
 
-def function(script):
-    mylst=[5,-10,20.0]
-    input[mylst*script]
-    return(script)
+def numbers():
+    numb1=input('Enter first number: ')
+    numb2=input('Enter second number: ')
+    numb3=input('Enter thrid number: ')
+    product= numb1 * numb2 * numb3
+    return product
+    
+    print(numbers())
+    
+    
+    def integer(ans):
+    big_numb = None
+    for ez in ans:
+        if isinstance(ez,int):
+            if big_numb is None or ez > big_numb:
+                big_numb = ez
+                return big_numb
+                
+    ans1=[9,1,10.2,6,-2]
+print(integer(ans1))
 
-1*"blah"*5
-20*-10*5
+ans2=[1.2,3/4,"Hello World"]
+print(integer(ans2))
 
 
-2.
-mylst=[1,9,10.2,6,-2]
-def largest_integer(mylst):
-  largest = None
-  for item in lst
-  if isinstance(item,int)
-  if largest is None or item > largest:
-  return largest
+
+def same_birthday(ppl):
+    birthdays=[]
+    for person in ppl:
+        birthday=(ppl[0],ppl[3])
+    if birthdays in birthdays:
+        return True
+    else:
+        birthdays.append(birthday)
+        return False
+        
+        
+    ppl=[('Thor','August',10),('Phil Coulson','July',8),('T\'Challa','November',29),('Peter Parker','August',10),('Tony Stark','March',14)]
+print(same_birthday(ppl))
+
+
+ppl=[('Nebiyu','September',25),('Naod','March',13),('Ado','May',28),('Edome','October',9),('Nati','July',9)]
+print(same_birthday(ppl))
+
+
+def remove_letter(letter,remove):
+    sign = ''
+    for alpha in letter:
+        if alpha != remove:
+            sign += alpha
+    return sign
+    
+    print(remove_letter('Hello World','l'))
+print(remove_letter('Supercalifragilisticceexpialidocious','i'))
+
+print(remove_letter('data 3401 introduction to python for data science','d'))
                
