@@ -1,0 +1,105 @@
+input_string = input()
+first, last, city = tuple(
+    map(str.strip, map(str.lower, input_string.split(',')))
+)
+
+
+def dummy (i): 
+    j=0 if i==0 else 1 if i==1 else 2 if i==2 else 'j is not in[0,1,2]'
+    
+    
+    
+    def convertTempWhile(temp,direction):
+    i=0
+    convertTemp=[]
+    while i <len(temp):
+        if direction =='F2C':
+            convertTemp.append((temp[i]-32)*5/9)
+        elif direction == 'C2F':
+            convertTemp.append(temp[i] *9/5 + 32)
+        else:
+            print("Invalid input direction!")
+            
+            return convertTempWhile     
+       
+        cdeg = [ -2,-15,-10,-5,0,5,10,15,20,25,30,35,40]
+        fdeg = [-20,-15,-5,0,10,15,30,35,40]
+        ftemp = convertTempWhile(cdeg,'C2F')
+        print(Ftemp)
+        ctemp = convertTempWhile(fdeg,'F2C')
+        print(Ctemp)
+        convertTempWhile(cdeg,'invalid')
+        
+        
+    
+    function OutVec = convertTempWhile(InVec,str)
+    i = 1;
+    OutVec = zeros(size(InVec));
+    if strcmp(str,'C2F')
+        while i <= length(InVec)
+            OutVec(i) = (9.0/5.0)*InVec(i) + 32.0;
+            i = i + 1;
+        end
+    else if strcmp(str,'F2C')
+        while i <= length(InVec)
+            OutVec(i) = (5.0/9.0)*(InVec(i) - 32.0);
+            i = i + 1;
+        end
+    else
+        error(['the requested conversion ',str,' is not supported. Program aborted.']);
+    
+ return OutVec
+
+ function OutVec = convertTempVec(InVec,str)
+    if strcmp(str,'C2F')
+        OutVec = (9.0/5.0)*InVec + 32.0;
+    else if strcmp(str,'F2C')
+        OutVec = (5.0/9.0)*(InVec - 32.0);
+    else
+        error(['the requested conversion ',str,' is not supported. Program aborted.']);
+        
+        
+    def convertTempFor(temp, unit):
+    if unit not in ['C2F', 'F2C']:
+        print("Error: Invalid input unit!")
+        return None
+    else:
+        for i in range(len(temp)):
+            if unit == 'F2C':
+                temp[i] = (temp[i] - 32) * 5 / 9
+            else:
+                temp[i] = temp[i] * 9 / 5 + 32
+        return temp
+        
+        
+        
+        
+        def convertTempVec(temp, unit):
+    if unit not in ['C2F', 'F2C']:
+        print("Error: Invalid input unit!")
+        return None
+    else:
+        if unit == 'F2C':
+            temp = (temp - 32) * 5 / 9
+        else:
+            temp = temp * 9 / 5 + 32
+        return temp
+        
+        
+        
+        
+        
+        
+        numbers = list(range(10))
+print(numbers)
+for n in numbers:
+    i = len(numbers)//2
+    del numbers[i]
+    print ('n={}, del {}'.format(n,i), numbers)
+    
+    
+    
+    
+    
+    ^^ print('it started to list all the numbers ranging from 1-10 however its ends at 9 because beacuse python reads 0 as the first number so 0-9')
+  
