@@ -1,0 +1,81 @@
+Problem 1:
+
+
+Max_acc = {'A': 129.0, 'R': 274.0, 'N': 195.0, 'D': 193.0, \
+            'C': 167.0, 'Q': 225.0, 'E': 223.0, 'G': 104.0, \
+            'H': 224.0,  'I': 197.0, 'L': 201.0, 'K': 236.0, \
+            'M': 224.0, 'F': 240.0,  'P': 159.0, 'S': 155.0, \
+            'T': 172.0, 'W': 285.0, 'Y': 263.0, ' V': 174.0}
+    
+    
+    opendis = open('1A2T_A.dssp','r')
+file_read = opendis.readlines()
+opendis
+
+
+amino_acids = []
+acc = []
+rsa = []
+protein_name = file_open.name [-11:-5]
+
+
+
+for i in file_read[27:len(file_read)]:
+    AA = i[13]
+if AA != ('!'or '*'):
+    amino_acids.append(AA)
+    acc.append(i[35:39])
+    rsa.append(float(i[35:39])/Max_acc[AA])
+print(rsa)
+
+
+
+thingfile = open('output_1A2T_A.txt','w')
+
+
+for i, j in enumerate(rsa):
+    thingfile.write(protein_name + '\t' + amino_acids[i]+'\t' + acc[i]+ '\t'+ str(rsa[i])+'\n')
+thingfile.close()
+
+
+
+
+thingfile_read = open ('output_1A2T_A.txt','r')
+thingfile_read.read()
+
+
+
+
+
+
+Problem 2:
+
+
+csv2_file_open = open('csv2formatted.txt') 
+csv2_lst = csv2_file_open.read() 
+csv2_out_open = open('CSV_data_out.txt', 'w') 
+x = csv2_lst.replace(","," ") 
+for i in x.split("\n"): 
+    i = i.split()  
+
+    if float(i[0])>0: 
+        i[0] = " "+"{:.3f}".format(float(i[0]))
+    else:
+        i[0] = "{:.3f}".format(float(i[0]))
+    if float(i[1])>0:
+        i[1] = " "+"{:.3f}".format(float(i[1]))
+    else:
+        i[1] = "{:.3f}".format(float(i[1]))
+    if float(i[2])>0:
+        i[2] = " "+"{:.3f}".format(float(i[2]))
+    else:
+        i[2] = "{:.3f}".format(float(i[2]))
+    if float(i[3])>0:
+        i[3] = " "+"{:.3f}".format(float(i[3]))
+    else:
+        i[3] = "{:.3f}".format(float(i[3]))
+
+    print('\t'+str(round(float(i[0]),3))+'\t'+str(round(float(i[1]),3))+'\t'+str(round(float(i[2]),3))+'\t'+str(round(float(i[3]),3)))
+    csv2_out_open.write('\t'+i[0]+'\t'+'\t'+i[1]+'\t'+'\t'+i[2]+'\t'+'\t'+i[3]+'\n')
+csv2_out_open.close()
+
