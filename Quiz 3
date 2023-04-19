@@ -1,0 +1,76 @@
+Problem 1:
+
+def count_char(char):
+    count = 0
+    with open('Shakespeare.txt','r') as f:
+        for line in f:
+            count += line.count(char)
+        return count
+        
+        
+        
+a_count = count_char('a')
+e_count = count_char('e')
+apostrophe_count = count_char("'")
+space_count = count_char(' ')
+print(f" There were {a_count} 'a's:")
+print(f" There were {e_count} 'e's:")
+print(f" There were {apostrophe_count} '''s:")
+print(f" There were {space_count} 'spaces's :")
+
+
+Output:
+There were 35 'a's:
+ There were 54 'e's:
+ There were 8 '''s:
+ There were 103 'spaces's :
+ 
+ 
+ Problem 2:
+ 
+ def replace_char(string,char,replacement):
+    return string.replace(char, replacement)
+with open('Shakespeare.txt', 'r') as file:
+    text = file.read()
+    modified_text = replace_char(text, 'a', '#')
+with open('Shakespeare_modified.txt','w') as file:
+    file.write(modified_text)
+    print(modified_text)
+    
+    
+    
+ Output:
+ So is it not with me #s with th#t Muse
+Stirr'd by # p#inted be#uty to his verse,
+Who he#ven itself for orn#ment doth use
+And every f#ir with his f#ir doth rehe#rse
+M#king # couplement of proud comp#re,
+With sun #nd moon, with e#rth #nd se#'s rich gems,
+With April's first-born flowers, #nd #ll things r#re
+Th#t he#ven's #ir in this huge rondure hems.
+O' let me, true in love, but truly write,
+And then believe me, my love is #s f#ir
+As #ny mother's child, though not so bright
+As those gold c#ndles fix'd in he#ven's #ir:
+Let them s#y more th#n like of he#rs#y well;
+I will not pr#ise th#t purpose not to sell.
+
+
+
+Problem 3:
+
+def numb(n):
+    with open('Shakespeare.txt','r') as file:
+        text=file.read()
+        words = text.split()
+        return [word for word in words if len(word)<=n]
+    
+print(numb(2))
+print(numb(4))
+print(numb(6))
+
+
+Output:
+['So', 'is', 'it', 'me', 'as', 'by', 'a', 'to', 'a', 'of', 'in', "O'", 'in', 'my', 'is', 'as', 'As', 'so', 'As', 'in', 'of', 'I', 'to']
+['So', 'is', 'it', 'not', 'with', 'me', 'as', 'with', 'that', 'Muse', 'by', 'a', 'to', 'his', 'Who', 'for', 'doth', 'use', 'And', 'fair', 'with', 'his', 'fair', 'doth', 'a', 'of', 'With', 'sun', 'and', 'with', 'and', 'rich', 'With', 'and', 'all', 'rare', 'That', 'air', 'in', 'this', 'huge', "O'", 'let', 'me,', 'true', 'in', 'but', 'And', 'then', 'me,', 'my', 'love', 'is', 'as', 'fair', 'As', 'any', 'not', 'so', 'As', 'gold', 'in', 'air:', 'Let', 'them', 'say', 'more', 'than', 'like', 'of', 'I', 'will', 'not', 'that', 'not', 'to']
+['So', 'is', 'it', 'not', 'with', 'me', 'as', 'with', 'that', 'Muse', 'by', 'a', 'beauty', 'to', 'his', 'verse,', 'Who', 'heaven', 'itself', 'for', 'doth', 'use', 'And', 'every', 'fair', 'with', 'his', 'fair', 'doth', 'Making', 'a', 'of', 'proud', 'With', 'sun', 'and', 'moon,', 'with', 'earth', 'and', "sea's", 'rich', 'gems,', 'With', 'and', 'all', 'things', 'rare', 'That', 'air', 'in', 'this', 'huge', 'hems.', "O'", 'let', 'me,', 'true', 'in', 'love,', 'but', 'truly', 'write,', 'And', 'then', 'me,', 'my', 'love', 'is', 'as', 'fair', 'As', 'any', 'child,', 'though', 'not', 'so', 'bright', 'As', 'those', 'gold', "fix'd", 'in', 'air:', 'Let', 'them', 'say', 'more', 'than', 'like', 'of', 'well;', 'I', 'will', 'not', 'praise', 'that', 'not', 'to', 'sell.']
