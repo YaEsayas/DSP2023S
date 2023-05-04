@@ -1,0 +1,44 @@
+Problem 1:
+
+import pandas as pd
+with open('wdbc.names','r') as f:
+    print(f.read())
+data = pd.read_csv('wdbc.data')
+print(data.head())
+
+
+Problem 2:
+
+import pandas as pd
+
+data = pd.read_csv("wdbc.data", header=None)
+
+with open("wdbc.names") as f:
+    names = [line.split(":")[0] for line in f.readlines()[12:]]
+
+
+data.head()
+
+
+Problem 3:
+
+# you may need to run  pip install sklearn in Ubuntu  (may need pip3)
+from sklearn.decomposition import PCA
+import matplotlib
+from matplotlib import pyplot as plt
+
+plt.figure()
+PCA3=PCA(n_components=2)
+XPCA = PCA3.fit_transform(x)
+plt.plot(XPCA[y==0,0],XPCA[y==0,1],'g.')
+plt.plot(XPCA[y==1,0],XPCA[y==1,1],'r.')
+plt.show()
+
+
+
+Problem 4:
+
+with open('adult.names') as f:
+    lines = f.readlines()
+    for line in lines:
+        print(line)
