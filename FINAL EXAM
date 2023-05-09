@@ -1,0 +1,161 @@
+Exercise 1:
+
+import pandas as pd
+
+data = pd.read_csv("abalone.data", header = None)
+header = ["Sex", "Length", "Diameter", "Height", "Whole weight", "Shucked weight", "Viscera weight", "Shell weight", "Rings"]
+data.columns = header
+labels = data['Rings']
+print(labels.value_counts())
+data.loc[data["Rings"] <= 3,"Rings"] = 0
+data.loc[(data["Rings"]==4)|(data["Rings"] == 5), "Rings"] = 1
+data.loc[data["Rings"] >= 6, "Rings"] = 2
+print(labels.value_counts())
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.pairplot(data,hue = "Rings")
+plt.show()
+
+
+
+Exercise 2:
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def RandomWalk(num_steps, start_position):
+    position = start_position
+    for i in range(num_steps):
+        step = np.random.choice([-1,1])
+        position += step
+    return position
+def SimulateRandomWalk(num_sims,num_steps,start_position):
+    final_positions = []
+    for i in range(num_sims):
+        final_position = RandomWalk(num_steps, start_position)
+        final_positions.append(final_position)
+    return final_positions
+
+num_sims = 10000
+num_steps = 100
+start_position = 0
+
+final_positions = SimulateRandomWalk(num_sims, num_steps, start_position)
+
+plt.hist(final_positions, bins = 50)
+plt.title(f" Histogram of Final Positions for {num_sims} Simulated Random Walks\nwith {num_steps} Steps and Start Position {start_position}")
+plt.xlabel("Final Position")
+plt.ylabel("Frequency")
+plt.show()
+
+num_steps = 1000
+
+final_positions = SimulateRandomWalk(num_sims, num_steps, start_position)
+plt.hist(final_positions, bins =50)
+plt.title(f" Histogram of Final Positions for {num_sims} Simulated Random Walks\nwith {num_steps} Steps and Start Position {start_position}")
+plt.xlabel("Final Position")
+plt.ylabel("Frequency")
+plt.show()
+
+num_steps = 5000
+
+final_positions = SimulateRandomWalk(num_sims, num_steps, start_position)
+plt.hist(final_positions, bins = 50)
+plt.title(f" Histogram of Final Positions for {num_sims} Simulated Random Walks\nwith {num_steps} Steps and Start Position {start_position}")
+plt.xlabel("Final Position")
+plt.ylabel("Frequency")
+plt.show()
+
+
+Exercise 3:
+
+class ProjLocY():  
+    def __init__(self, velInitY, g = 9.8):  
+        self.velInitY = velInitY # initial velocity along the y direction.  
+        self.gravityConstant = g # gravityConstant, 9.81 on earth.  
+    def getLocY(self, time):  
+        """  
+        Return the location of the projectile at the specific given `time` and initial velocity.  
+        Input  
+            time    :   An input real (float) representing the time  
+                        past since the start of the projectile motion.  
+        """  
+        return self.velInitY * time - 0.5 * self.gravityConstant * time**2  
+    
+    def evaluate(self, time): 
+        return self.getLocY(time) 
+        
+        
+    class ProjLocX():
+    def __init__(self, velInitX):
+        self.velInitX = velInitX  # initial velocity along the x direction
+
+    def getLocX(self, time):
+        """
+        Return the location of the projectile at the specific given `time` and initial velocity.
+        Input
+            time    :   An input real (float) representing the time
+                        past since the start of the projectile motion.
+        """
+        return self.velInitX * time
+
+    def evaluate(self, time):
+        return self.getLocX(time)
+
+
+class ProjLocXY(ProjLocX, ProjLocY):
+    def __init__(self, velInitX, velInitY, g=9.8):
+        ProjLocX.__init__(self, velInitX)
+        ProjLocY.__init__(self, velInitY, g)
+
+    def evaluate(self, time):
+        return self.getLocX(time), self.getLocY(time)
+
+
+proj = ProjLocXY(10, 10)
+print(proj.evaluate(1)) 
+
+
+(Bonus) Exercise 4:
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+P = 0.01
+r = 0.05
+
+
+time = np.arange(0, 1001)
+
+
+M = P * np.exp(r*time)
+
+
+plt.plot(time, M)
+plt.xlabel('Time (years)')
+plt.ylabel('Money (dollars)')
+plt.title('Fry\'s Money with Continuously Compounded Interest')
+plt.show()
+
+
+time = np.arange(0, 1001)
+
+
+S = P*(1 + r*time)
+
+
+plt.plot(time, S)
+plt.xlabel('Time (years)')
+plt.ylabel('Money (dollars)')
+plt.title('Fry\'s Money with Simple Interest')
+plt.show()
+
+
+plt.plot(time, M-S)
+plt.xlabel('Time (years)')
+plt.ylabel('Difference (dollars)')
+plt.title('Difference between Fry\'s Money with Continuously Compounded Interest and Simple Interest')
+plt.show()
+    
+    
